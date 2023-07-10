@@ -9,6 +9,28 @@ function displayGame () {
   divPrincipal.appendChild(newGame);
 };
 
+function fases (playerLevel) {
+
+  try {
+    if (playerLevel === undefined) {
+        throw new Error('Error 001. Level não definido');
+      } else if (isNaN(playerLevel)) {
+        throw new Error('Error 002. Level não é um número')
+      } 
+  } catch (error) {
+    return alert(error.message)
+  }
+
+  for (let i = 0; i < playerLevel; i += 1) {
+    const element = document.createElement('button')
+    element.className = 'fases'
+    element.addEventListener('click', () => {
+      const fases = document.querySelector('.fases');
+      fases.style.display = 'none';
+    })
+  }
+}
+
 function interfaceJogo () {
   const divOptions = document.querySelector('#options');
   const divTela = document.createElement('div');
@@ -35,7 +57,7 @@ function newGameAct () {
   const btnNewGame = document.querySelector('#newGameBtn');
   btnNewGame.addEventListener('click', (eve) => {
     eve.target.style.display = 'none';
-    interfaceJogo()
+    fases(1)
   })
 }
 
