@@ -20,10 +20,12 @@ function fases (playerLevel) {
   } catch (error) {
     return alert(error.message)
   }
-
+  const local = document.querySelector('#options')
   for (let i = 0; i < playerLevel; i += 1) {
     const element = document.createElement('button')
     element.className = 'fases'
+    element.innerText = `Level ${i}`
+    local.appendChild(element)
     element.addEventListener('click', () => {
       const fases = document.querySelector('.fases');
       fases.style.display = 'none';
@@ -57,7 +59,7 @@ function newGameAct () {
   const btnNewGame = document.querySelector('#newGameBtn');
   btnNewGame.addEventListener('click', (eve) => {
     eve.target.style.display = 'none';
-    fases(1)
+    fases(3)
   })
 }
 
