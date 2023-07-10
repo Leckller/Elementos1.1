@@ -9,30 +9,6 @@ function displayGame () {
   divPrincipal.appendChild(newGame);
 };
 
-function fases (playerLevel) {
-
-  try {
-    if (playerLevel === undefined) {
-        throw new Error('Error 001. Level não definido');
-      } else if (isNaN(playerLevel)) {
-        throw new Error('Error 002. Level não é um número')
-      } 
-  } catch (error) {
-    return alert(error.message)
-  }
-  const local = document.querySelector('#options')
-  for (let i = 0; i < playerLevel; i += 1) {
-    const element = document.createElement('button')
-    element.className = 'fases'
-    element.innerText = `Level ${i}`
-    local.appendChild(element)
-    element.addEventListener('click', () => {
-      const fases = document.querySelector('.fases');
-      fases.style.display = 'none';
-    })
-  }
-}
-
 function interfaceJogo () {
   const divOptions = document.querySelector('#options');
   const divTela = document.createElement('div');
@@ -55,6 +31,45 @@ function interfaceJogo () {
   InterfaceLocal.appendChild(buffElementar)
 }
 
+function enemy (level) {
+  if(level === undefined) {
+    throw new Error('Error 003. Level de enemy não definido')
+  }
+  const nivel = level;
+  const multiplicador = nivel / 4;
+  const enemyHp = 100 * multiplicador;
+  const dano = 5 * multiplicador;
+  const retorno = [nivel, enemyHp, dano]
+  return retorno;
+}
+
+function fases (playerLevel) {
+
+  try {
+    if (playerLevel === undefined) {
+        throw new Error('Error 001. Level não definido');
+      } else if (isNaN(playerLevel)) {
+        throw new Error('Error 002. Level não é um número')
+      } 
+  } catch (error) {
+    return alert(error.message)
+  }
+  const local = document.querySelector('#options')
+  for (let i = 0; i < playerLevel; i += 1) {
+    const element = document.createElement('button')
+    element.className = 'fases'
+    element.innerText = `Level ${i}`
+    local.appendChild(element)
+    element.addEventListener('click', (e) => {
+      const fases = document.querySelectorAll('.fases');
+      for (let fase of fases) {
+        fase.className = 'none'
+      }
+      interfaceJogo();
+    })
+  }
+}
+
 function newGameAct () {
   const btnNewGame = document.querySelector('#newGameBtn');
   btnNewGame.addEventListener('click', (eve) => {
@@ -63,7 +78,8 @@ function newGameAct () {
   })
 }
 
-window.addEventListener('load', (eve) => {
+window.onload = () => {
   displayGame();
   newGameAct();
-})
+}
+

@@ -114,3 +114,7 @@ footer {
 .selected {
   border: solid rgb(144, 0, 0) 2px;
 }
+
+.none {
+  display: none;
+}
