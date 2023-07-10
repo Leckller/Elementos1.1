@@ -7,11 +7,31 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  height: 100%;
+}
+
+.grow1 {
+  flex-grow: 1;
+  max-width: 20%;
+}
+
+.grow2 {
+  flex-grow: 2;
+}
+
+.grow3 {
+  flex-grow: 3;
+}
+
+body {
+  background-color: black;
+  height: 1080px;
 }
 
 header {
   width: 100%;
   display: flex;
+  height: 10%;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
@@ -26,6 +46,7 @@ header img {
 main {
   display: flex;
   width: 100%;
+  height: 80%;
   background-color: rgb(86, 120, 0);
 }
 
@@ -34,4 +55,45 @@ main {
   width: 100%;
   height: 100%;
   border: solid black 1px;
+}
+
+main aside {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+}
+
+main section {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  display: flex;
+  width: 100%;
+  height: 10%;
+  background-color: blue;
+}
+
+#options {
+  width: 100%;
+  align-items: center;
+}
+
+#options button {
+  width: 50%;
+  font-size: 30px;
+  box-shadow: 3px 3px 3px black;
+}
+
+.gameDiv {
+  display: flex;
+  flex-direction: column;
+}
+
+#contGame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
