@@ -86,6 +86,24 @@ function adicionaEnemy (statusEnemy) {
   inimigo2.id = 'enemyEye2';
   inimigo2.className = 'enemy';
   
+  inimigo.addEventListener('click', (eve) => {
+    const enemyLocal = document.querySelector('.selected')
+    if (enemyLocal) {
+      enemyLocal.classList.remove('selected')
+      eve.target.classList.add('selected')
+    }
+    eve.target.classList.add('selected')
+  })
+
+  inimigo2.addEventListener('click', (eve) => {
+    const enemyLocal = document.querySelector('.selected')
+    if (enemyLocal) {
+      enemyLocal.classList.remove('selected')
+      eve.target.classList.add('selected')
+    }
+    eve.target.classList.add('selected')
+  })
+
   ceuLocal.appendChild(inimigo)
   sobreTerraLocal.appendChild(inimigo2)
 }
