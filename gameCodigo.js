@@ -94,7 +94,7 @@ function adicionaEnemy (statusEnemy) {
     }
     eve.target.classList.add('selected')
   })
-
+  
   inimigo2.addEventListener('click', (eve) => {
     const enemyLocal = document.querySelector('.selected')
     if (enemyLocal) {
