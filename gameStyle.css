@@ -10,6 +10,11 @@
   height: 100%;
 }
 
+.grow {
+  flex-grow: 1;
+  height: 30%;
+}
+
 .grow1 {
   flex-grow: 1;
   max-width: 20%;
@@ -100,11 +105,22 @@ footer {
 #Tela {
   width: 100%;
   background-color: black;
+  display: flex;
+  flex-direction: column;
 }
 
 #Interface {
   width: 100%;
-  background-color: blue;
+  background-color: rgb(62, 87, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.int {
+  margin: 2px;
+  box-shadow: 1px 1px 1px black;
 }
 
 .enemy {

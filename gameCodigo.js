@@ -19,16 +19,39 @@ function interfaceJogo () {
   divInterface.id = 'Interface';
   divOptions.appendChild(divTela);
   divOptions.appendChild(divInterface);
-  const TelaLocal = document.querySelector('#Tela');
   const InterfaceLocal = document.querySelector('#Interface');
   const ataque = document.createElement('button');
   const buffElementar = document.createElement('button');
   ataque.id = 'ataque';
   ataque.innerText = 'Ataque';
+  ataque.className = 'int'
   buffElementar.id = 'buffElementar';
   buffElementar.innerText = 'Buff Elementar'
+  buffElementar.className = 'int'
   InterfaceLocal.appendChild(ataque);
   InterfaceLocal.appendChild(buffElementar)
+}
+
+function telaGame () {
+  const TelaLocal = document.querySelector('#Tela');
+  const ceu = document.createElement('img');
+  const sobreTerra = document.createElement('img');
+  const terra = document.createElement('img');
+  
+  ceu.id = 'ceuGame';
+  ceu.className = 'grow'
+  sobreTerra.id = 'sobreTerraGame';
+  sobreTerra.className = 'grow'
+  terra.id = 'terraGame';
+  terra.className = 'grow'
+
+  ceu.src = 'ceu.png'
+  sobreTerra.src = 'sobreterra.png'
+  terra.src ='terra.png'
+
+  TelaLocal.appendChild(ceu);
+  TelaLocal.appendChild(sobreTerra);
+  TelaLocal.appendChild(terra);
 }
 
 function enemy (level) {
@@ -66,6 +89,7 @@ function fases (playerLevel) {
         fase.className = 'none'
       }
       interfaceJogo();
+      telaGame();
     })
   }
 }
