@@ -58,12 +58,27 @@ function enemy (level) {
   if(level === undefined) {
     throw new Error('Error 003. Level de enemy não definido')
   }
+  if (level === '0' || level === 0) {
+    return [0, 15, 1]
+  }
   const nivel = level;
   const multiplicador = nivel / 4;
   const enemyHp = 100 * multiplicador;
   const dano = 5 * multiplicador;
   const retorno = [nivel, enemyHp, dano]
   return retorno;
+}
+
+let faseClicked = undefined;
+
+function adicionaEnemy (statusEnemy) {
+  const ceuLocal = document.querySelector('#ceuGame');
+  const sobreTerraLocal = document.querySelector('#sobreTerraGame');
+
+  const inimigo = document.createElement('img');
+  inimigo.src = 'inimigoOlho.png'
+  inimigo.id = 'enemyEye';
+  ceuLocal.appendChild(inimigo)
 }
 
 function fases (playerLevel) {
@@ -85,20 +100,24 @@ function fases (playerLevel) {
     local.appendChild(element)
     element.addEventListener('click', (e) => {
       const fases = document.querySelectorAll('.fases');
+      faseClicked = e.target.innerText[6]
+      console.log(e.target.innerText)
       for (let fase of fases) {
         fase.className = 'none'
       }
       interfaceJogo();
       telaGame();
+      adicionaEnemy(enemy(faseClicked))
     })
   }
 }
+
 
 function newGameAct () {
   const btnNewGame = document.querySelector('#newGameBtn');
   btnNewGame.addEventListener('click', (eve) => {
     eve.target.style.display = 'none';
-    fases(3)
+    fases(30)
   })
 }
 
