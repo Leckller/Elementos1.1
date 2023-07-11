@@ -104,7 +104,6 @@ footer {
 
 #Tela {
   width: 100%;
-  background-color: black;
   display: flex;
   flex-direction: column;
 }
@@ -124,7 +123,8 @@ footer {
 }
 
 .enemy {
-  width: 5%;
+  width: 15%;
+  padding-right: 30px;
 }
 
 .selected {
@@ -133,4 +133,16 @@ footer {
 
 .none {
   display: none;
+}
+
+#ceuGame {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#sobreTerraGame {
+  display: flex;
+  align-items: center;
+  justify-content: end;
 }

@@ -34,8 +34,8 @@ function interfaceJogo () {
 
 function telaGame () {
   const TelaLocal = document.querySelector('#Tela');
-  const ceu = document.createElement('img');
-  const sobreTerra = document.createElement('img');
+  const ceu = document.createElement('div');
+  const sobreTerra = document.createElement('div');
   const terra = document.createElement('img');
   
   ceu.id = 'ceuGame';
@@ -44,10 +44,10 @@ function telaGame () {
   sobreTerra.className = 'grow'
   terra.id = 'terraGame';
   terra.className = 'grow'
-
-  ceu.src = 'ceu.png'
-  sobreTerra.src = 'sobreterra.png'
-  terra.src ='terra.png'
+  
+  ceu.style.backgroundImage = "url('ceu.png')"
+  sobreTerra.style.backgroundImage = "url('sobreterra.png')"
+  terra.style.backgroundImage = "url('terra.png')"
 
   TelaLocal.appendChild(ceu);
   TelaLocal.appendChild(sobreTerra);
@@ -76,9 +76,18 @@ function adicionaEnemy (statusEnemy) {
   const sobreTerraLocal = document.querySelector('#sobreTerraGame');
 
   const inimigo = document.createElement('img');
-  inimigo.src = 'inimigoOlho.png'
+  const inimigo2 = document.createElement('img');
+
+  inimigo.src = 'inimigoOlho.png';
   inimigo.id = 'enemyEye';
+  inimigo.className = 'enemy';
+
+  inimigo2.src = 'inimigoOlho.png';
+  inimigo2.id = 'enemyEye2';
+  inimigo2.className = 'enemy';
+  
   ceuLocal.appendChild(inimigo)
+  sobreTerraLocal.appendChild(inimigo2)
 }
 
 function fases (playerLevel) {
@@ -112,7 +121,6 @@ function fases (playerLevel) {
   }
 }
 
-
 function newGameAct () {
   const btnNewGame = document.querySelector('#newGameBtn');
   btnNewGame.addEventListener('click', (eve) => {
@@ -125,4 +133,3 @@ window.onload = () => {
   displayGame();
   newGameAct();
 }
-
