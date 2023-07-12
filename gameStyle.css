@@ -112,7 +112,7 @@ footer {
   width: 100%;
   background-color: rgb(62, 87, 0);
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   flex-direction: row;
 }
@@ -133,6 +133,28 @@ footer {
 
 .none {
   display: none;
+}
+
+.personagem {
+  width: 30%;
+}
+
+#status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 50%;
+  border: solid black 3px;
+}
+
+#opAtaques {
+  display: flex;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  border: solid black 3px;
 }
 
 #ceuGame {

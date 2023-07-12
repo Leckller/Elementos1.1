@@ -13,6 +13,8 @@ function interfaceJogo () {
   const divOptions = document.querySelector('#options');
   const divTela = document.createElement('div');
   const divInterface = document.createElement('div');
+  const divStatus = document.createElement('div');
+  divStatus.id = 'status';
   divTela.className = 'grow3';
   divTela.id = 'Tela';
   divInterface.className = 'grow2';
@@ -22,15 +24,35 @@ function interfaceJogo () {
   const InterfaceLocal = document.querySelector('#Interface');
   const ataque = document.createElement('button');
   const buffElementar = document.createElement('button');
+  const divAtaques = document.createElement('div');
+  divAtaques.id = 'opAtaques'
   ataque.id = 'ataque';
   ataque.innerText = 'Ataque';
   ataque.className = 'int'
   buffElementar.id = 'buffElementar';
   buffElementar.innerText = 'Buff Elementar'
   buffElementar.className = 'int'
-  InterfaceLocal.appendChild(ataque);
-  InterfaceLocal.appendChild(buffElementar)
+  InterfaceLocal.appendChild(divAtaques)
+  const divAtaquesLocal = document.querySelector('#opAtaques');
+  divAtaquesLocal.appendChild(ataque);
+  divAtaquesLocal.appendChild(buffElementar)
+  InterfaceLocal.appendChild(divStatus)
+  const divStatusLocal = document.querySelector('#status');
+  const imgPersonagem = document.createElement('img');
+  imgPersonagem.className = 'personagem'
+  imgPersonagem.src = './personagens/terraputo.png'
+  const hp = document.createElement('h3');
+  hp.id = 'hpPersonagem';
+  hp.innerText = 'Hp: 100';
+  const energia = document.createElement('h3');
+  energia.id = 'energiaPersonagem';
+  energia.innerText = 'Energia: 100';
+  divStatusLocal.appendChild(hp)
+  divStatusLocal.appendChild(energia)
+  divStatusLocal.appendChild(imgPersonagem)
 }
+
+
 
 function telaGame () {
   const TelaLocal = document.querySelector('#Tela');
@@ -52,6 +74,7 @@ function telaGame () {
   TelaLocal.appendChild(ceu);
   TelaLocal.appendChild(sobreTerra);
   TelaLocal.appendChild(terra);
+
 }
 
 function enemy (level) {
@@ -146,6 +169,7 @@ function newGameAct () {
     fases(30)
   })
 }
+
 
 window.onload = () => {
   displayGame();
